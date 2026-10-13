@@ -1,4 +1,4 @@
-# 外卖运营管理平台（catering-take-out）
+餐饮订单履约与运营系统（catering-take-out）
 
 基于 SpringBoot + MyBatis + MySQL + Redis + Vue2 的前后端分离餐饮外卖管理系统，面向中小餐饮商家，提供商家端（管理后台）与用户端（小程序 / H5）双端能力，并内置商家 AI 智能客服模块。
 
