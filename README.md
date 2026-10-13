@@ -1,13 +1,14 @@
-餐饮订单履约与运营系统（catering-take-out）
+# 餐饮订单履约与运营系统（catering-take-out）
 
-基于 SpringBoot + MyBatis + MySQL + Redis + Vue2 的前后端分离餐饮外卖管理系统，面向中小餐饮商家，提供商家端（管理后台）与用户端（小程序 / H5）双端能力，并内置商家 AI 智能客服模块。
+基于 SpringBoot + MyBatis + MySQL + Redis + Vue2 的前后端分离餐饮订单履约与运营系统，面向中小餐饮商家，提供商家端（管理后台）与用户端（小程序 / H5）双端能力，并内置商家 AI 智能客服模块。
+
 
 
 ***
 
 ## 一、项目简介
 
-面向中小餐饮商家的外卖运营平台，分为**管理端（admin）与用户端（user）**：
+面向中小餐饮商家的餐饮订单履约与运营系统，分为**管理端（admin）与用户端（user）**：
 
 
 
@@ -25,7 +26,7 @@
 | ---- | --------------------------------------------- |
 | 后端框架 | Spring Boot 2.7.3、Spring MVC                  |
 | 持久层  | MyBatis、MyBatis-Plus 分页（PageHelper）、Druid 连接池 |
-| 数据库  | MySQL 8.x            |
+| 数据库  | MySQL 8.x                                     |
 | 缓存   | Redis（店铺状态、全局 ID 生成）                          |
 | 认证   | JWT（管理端 / 用户端双 Token）                         |
 | 接口文档 | Knife4j（Swagger）                              |
@@ -124,7 +125,11 @@ catering-take-out                       # Maven 父工程（com.catering:caterin
 | `user`          | 用户（C 端）         | `Customer`      |
 | `address_book`  | 收货地址            | `Address`       |
 
-> 表结构如上表所列，库名统一为 `catering_take_out`。
+> 表结构如上表所列，库名统一为 
+>
+> `catering_take_out`
+>
+> 。
 
 ## 六、接口概览
 
@@ -154,10 +159,16 @@ catering-take-out                       # Maven 父工程（com.catering:caterin
 
 项目采用统一的餐饮主题命名体系：
 
-* **包结构**：`com.catering`（common / pojo / server 三个模块）
-* **核心实体**：员工 `Staff`、菜品 `Product`、口味 `ProductFlavor`、套餐 `Combo`、套餐-菜品关联 `ComboProduct`、订单 `Order`、订单明细 `OrderDetail`、购物车 `Cart`、用户 `Customer`、收货地址 `Address`、分类 `Category`
+
+
+* **包结构**：`com.catering`（common /pojo/server 三个模块）
+
+* **核心实体**：员工 `Staff`、菜品 `Product`、口味 `ProductFlavor`、套餐 `Combo`、套餐 - 菜品关联 `ComboProduct`、订单 `Order`、订单明细 `OrderDetail`、购物车 `Cart`、用户 `Customer`、收货地址 `Address`、分类 `Category`
+
 * **接口 / 实现分离**：`XxxService`（接口）+ `XxxServiceImpl`（实现）
+
 * **数据访问层**：`XxxMapper`（Java 接口 + `mapper/*.xml` 映射）
+
 * **自有 / 通用命名**：`AiChatController`（AI 客服）、`PayNotifyController`（支付回调）、`OrderTask`/`WebSocketTask`（定时任务）、`WorkspaceService`（工作台）
 
 ## 八、启动方式
@@ -197,11 +208,9 @@ catering-take-out                       # Maven 父工程（com.catering:caterin
 | `catering.shop.address`    | 店铺地址展示配置                                                                                                 |
 | `ai.*`                     | AI 智能客服：阿里云百炼 `base-url`、`api-key`、`model-name`（qwen3.6-flash）                                           |
 
-> ⚠️ 
->
+> ⚠️
 > `application-dev.yml`
->
->  中含微信支付密钥、AI API Key 等敏感信息，请勿提交到公开仓库。
+> 中含微信支付密钥、AI API Key 等敏感信息，请勿提交到公开仓库。
 
 ## 十、注意事项
 
